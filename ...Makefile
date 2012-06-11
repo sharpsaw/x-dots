@@ -1,6 +1,6 @@
 # This file is used by: http://github.com/ingydotnet/....git
 install:
-	( cd xcompose; ./configure && make install )
+	( cd xcompose; ./configure --quiet && make install )
 deps:
 	@/bin/echo -e "\e[36mTesting for dependant -dots\e[0m: "
 	[ -d $$DOTDOTDOT_ROOT/src/loop-dots ]
