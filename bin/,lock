@@ -1,0 +1,8 @@
+#!/bin/sh -xe
+if ps U$USER | grep '[g]nome-screensaver'; then
+    gnome-screensaver-command -l
+elif ps U$USER | grep '[x]screensaver'; then
+    xscreensaver-command -lock
+else
+    echo "No gnome-screensaver, no xscreensaver. =\\"
+fi
