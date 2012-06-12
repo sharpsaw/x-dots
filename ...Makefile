@@ -7,3 +7,4 @@ deps:
 	[ -d $$DOTDOTDOT_ROOT/src/sharp-dots ]
 	[ -d $$DOTDOTDOT_ROOT/src/sane-dots ]
 	[ -d $$DOTDOTDOT_ROOT/src/linux-dots ]
+	[ -d $$DOTDOTDOT_ROOT/src/perl-dots ]

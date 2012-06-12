@@ -1,0 +1,7 @@
+#!/bin/sh
+assert-clipboard-pm() {
+    assert-perl-module Clipboard
+}
+alias cj='assert-clipboard-pm && clipjoin'
+alias cb='assert-clipboard-pm && clipbrowse'
+alias ce='assert-clipboard-pm && clipedit'
