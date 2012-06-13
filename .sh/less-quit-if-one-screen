@@ -1,0 +1,5 @@
+#!/bin/sh
+## Workaround for systems that set $LESS (which means git won't override it)
+expr "$LESS" : ".*-F" &>/dev/null ||
+    expr "$LESS" : ".*--quit-if-one-screen" &>/dev/null ||
+        export LESS="$LESS -F"

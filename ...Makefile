@@ -1,10 +1,14 @@
 # This file is used by: http://github.com/ingydotnet/....git
 install:
-	( cd xcompose; ./configure --quiet && make install )
+	[ -d ~/bin ] || mkdir ~/bin
+	# For distros that install as firefox-bin but not firefox:
+	which firefox &>/dev/null || ( \
+		which firefox-bin &>/dev/null && \
+			ln -fs `which firefox-bin` ~/bin/firefox )
 deps:
 	@/bin/echo -e "\e[36mTesting for dependant -dots\e[0m: "
-	[ -d $$DOTDOTDOT_ROOT/src/loop-dots ]
-	[ -d $$DOTDOTDOT_ROOT/src/sharp-dots ]
-	[ -d $$DOTDOTDOT_ROOT/src/sane-dots ]
-	[ -d $$DOTDOTDOT_ROOT/src/linux-dots ]
-	[ -d $$DOTDOTDOT_ROOT/src/perl-dots ]
+	[ -d ~/.../src/loop-dots ]
+	[ -d ~/.../src/sharp-dots ]
+	[ -d ~/.../src/sane-dots ]
+	[ -d ~/.../src/linux-dots ]
+	[ -d ~/.../src/perl-dots ]
