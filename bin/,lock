@@ -3,6 +3,10 @@ if ps U$USER | grep '[g]nome-screensaver'; then
     gnome-screensaver-command -l
 elif ps U$USER | grep '[x]screensaver'; then
     xscreensaver-command -lock
+elif type gnome-screensaver; then
+    gnome-screensaver
+    gnome-screensaver-command -l
+# TODO: auto-run xscreensaver if it exists (don't have it on-hand to test)
 else
     echo "No gnome-screensaver, no xscreensaver. =\\"
 fi
