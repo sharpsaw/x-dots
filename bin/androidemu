@@ -1,0 +1,5 @@
+#!/bin/sh -xe
+## Bring up Android emulator. You'll probably have to set some env vars.
+ANDROID_SDK_DIR=${ANDROID_SDK_DIR:-~/pkg/android/sdk}
+ANDROID_VIRTUAL_DEVICE=${ANDROID_EMU:-hihi} # What else is a sensible default?
+$ANDROID_SDK_DIR/tools/emulator @$ANDROID_VIRTUAL_DEVICE

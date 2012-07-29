@@ -1,0 +1,4 @@
+#!/bin/sh -xe
+## MSIE8. We're considerate webdevs like that. You'll probably have to set some env vars.
+IE8="${IE8:-$HOME/.wine/drive_c/Program Files/Internet Explorer/iexplore.exe}"
+wine "$IE8"
