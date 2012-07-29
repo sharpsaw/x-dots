@@ -1,33 +1,35 @@
 #!/usr/bin/env perl
-## TODO script (but is to turn the silly `~/Downloads/` into the Unixy `~/dl`)
+## Turn the silly `~/Downloads/` dirs into the Unixy `~/dl`
 use strict;
 use warnings;
-die "TODO";
-__END__
-    bin/
-    Desktop/
-    Documents/
-    Downloads/
-    Music/
-    NewBox
-    Pictures/
-    Public/
-    src/
-    Templates/
-    Videos/
-% cat .config/user-dirs.dirs                                                                                                        ~@macbuk
-# This file is written by xdg-user-dirs-update
-# If you want to change or add directories, just edit the line you're
-# interested in. All local changes will be retained on the next run
-# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
-# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
-# absolute path. No other format is supported.
-# 
-XDG_DESKTOP_DIR="$HOME/Desktop"
-XDG_DOWNLOAD_DIR="$HOME/Downloads"
-XDG_TEMPLATES_DIR="$HOME/Templates"
-XDG_PUBLICSHARE_DIR="$HOME/Public"
-XDG_DOCUMENTS_DIR="$HOME/Documents"
-XDG_MUSIC_DIR="$HOME/Music"
-XDG_PICTURES_DIR="$HOME/Pictures"
-XDG_VIDEOS_DIR="$HOME/Videos"
+
+# Did I misss any?  Seems like different environments do this differently.
+my %map = (
+    Desktop => 'dtop',
+    Documents => 'doc',
+    Downloads => 'dl',
+    Music => 'au',
+    Pictures => 'img',
+    Public => 'pub',
+    Templates => 'templates',
+    Videos => 'vid',
+);
+
+my $user_dirs_filename = '.config/user-dirs.dirs';
+chdir or die $!;
+open my $dirsfile, '>'.$user_dirs_filename
+    or die "Couldn't open $user_dirs_filename: $!";
+while (my ($silly, $unixy) = each %map) {
+    my $varname = uc "XDG_${silly}_DIR";
+    if (-e $unixy) {
+        print "$unixy already exists.\n";
+    } elsif (-e $silly) {
+        print "Moving $silly to $unixy\n";
+        0 == system "mv $silly $unixy"
+            or warn "$!";
+    } else {
+        print "Creating `$unixy`\n";
+        mkdir $unixy or die $!;
+    }
+    print $dirsfile "$varname=\"\$HOME/$unixy\"\n";
+}

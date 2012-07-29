@@ -19,7 +19,9 @@ Update by having sharpsaw/perl-dots then yy@" on the next line:
 jjV}k!bin-docs
 -->
 * `,lock` ⇒ Try to find a screensaver and lock using it (gnome-screensaver preferred over xscreensaver, because of its "Switch User" button)
-* `tersify-xdg-dirs` ⇒ TODO script (but is to turn the silly `~/Downloads/` into the Unixy `~/dl`)
+* `androidemu` ⇒ Bring up Android emulator. You'll probably have to set some env vars.
+* `ie8` ⇒ MSIE8. We're considerate webdevs like that. You'll probably have to set some env vars.
+* `tersify-xdg-dirs` ⇒ Turn the silly `~/Downloads/` dirs into the Unixy `~/dl`
 * `xs-e` ⇒ `"$@" >> ~/.xsession-errors &`
 
 
