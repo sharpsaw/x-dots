@@ -1,4 +1,5 @@
 #!/bin/sh -xe
+## Try to find a screensaver and lock using it (gnome-screensaver preferred over xscreensaver, because of its "Switch User" button)
 if ps U$USER | grep '[g]nome-screensaver'; then
     gnome-screensaver-command -l
 elif ps U$USER | grep '[x]screensaver'; then
