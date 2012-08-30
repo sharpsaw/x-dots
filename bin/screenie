@@ -1,0 +1,5 @@
+#!/bin/bash -xe
+read -p Name -e name
+sleep 2
+import ~/img/screens/$name
+,b http://pasteall.org/pic/
