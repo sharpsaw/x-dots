@@ -1,5 +1,9 @@
 #!/bin/bash -xe
-read -p Name -e name
+if [ 0 = $# ]; then
+    read -p 'Name: ' -e name
+else
+    name=$1
+fi
 sleep 2
 import ~/img/screens/$name
 ,b http://pasteall.org/pic/
