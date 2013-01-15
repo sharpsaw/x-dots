@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+warn_percent = (ARGV[0] || 25).to_i
+DISPLAY_MS = '1000'
+/(?<charge>\d+)%/ =~ `acpi`
+system *['notify-send', '-t', DISPLAY_MS, 'Battery at: %d%%' % charge] if
+  charge.to_i < warn_percent
