@@ -1,4 +1,4 @@
-install: upgrade
+install: update
 
-upgrade:
+update:
 	fc-cache &
